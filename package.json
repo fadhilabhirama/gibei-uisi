@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.24.0",
-  "engines": { "node": "24.22.1" },
+  "engines": {
+    "node": "24.22.1"
+  },
   "scripts": {
     "dev": "next dev --webpack --hostname 127.0.0.1",
     "build": "next build --webpack",
@@ -14,6 +16,7 @@
     "test:ui": "node tests/browser/beranda.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.119.2",
     "next": "16.4.6",
     "react": "19.3.1",
     "react-dom": "19.3.1"

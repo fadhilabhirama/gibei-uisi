@@ -63,6 +63,29 @@ Payload, dashboard lama, route API lama, library database, dan skrip seed/migras
 lama telah dikeluarkan dari aplikasi aktif. Library backend dan autentikasi baru
 belum dipilih.
 
+## Menghubungkan Supabase
+
+Gunakan environment yang terpisah untuk development dan jangan mengarahkan aplikasi
+rebuild ke data produksi lama.
+
+1. Buat proyek baru di [Supabase](https://supabase.com/dashboard).
+2. Salin Project URL dan publishable key (atau anon key) dari **Project Settings >
+   API**.
+3. Buat `.env.local` dari `.env.example`:
+
+   ```sh
+   cp .env.example .env.local
+   ```
+
+4. Isi `NEXT_PUBLIC_SUPABASE_URL` dan
+   `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` pada `.env.local`.
+5. Jangan pernah menyimpan `service_role` key atau secret database pada variabel
+   `NEXT_PUBLIC_*`.
+
+Client aman untuk akses publik tersedia di
+`src/lib/supabase/client.ts`. Fungsi tersebut sengaja tidak membaca credential saat
+build; variabel wajib baru diverifikasi ketika client benar-benar dibuat.
+
 ## Acuan pekerjaan
 
 - [PRD v1.1](docs/PRD-v1.1.md)
